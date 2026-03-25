@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Carousel Focus - Exact Slider Layout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loader" class="loader">Preloading Assets...</div>
+
+    <div class="hero-container" id="heroContainer" style="display: none;">
+        
+        <!-- 1. Slider Container Fix -->
+        <div class="slider scene" id="slider">
+            
+            <!-- 3. Center Product Fix (inside slider center, NOT rotating) -->
+            <div class="center-product">
+                <img id="centerImage" src="" alt="Center Product">
+            </div>
+
+            <!-- Rotating Carousel System -->
+            <div class="carousel" id="carousel">
+                <!-- Items injected via JS -->
+            </div>
+            
+        </div>
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

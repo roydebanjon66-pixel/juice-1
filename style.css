@@ -1,0 +1,117 @@
+:root {
+    --bg-color: #0f0f0f;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background: var(--bg-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+.loader {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: #0f0f0f;
+    z-index: 100;
+}
+
+.hero-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 1. Slider Container Fix */
+.slider {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    transform: translate(-50%, -50%) scale(0.85);
+    transform-style: preserve-3d;
+    perspective: 1200px;
+    z-index: 1;
+}
+
+.carousel {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    will-change: transform;
+    pointer-events: auto;
+}
+
+/* 3. Center Product Fix */
+.center-product {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.center-product img {
+    height: 500px;
+    object-fit: contain;
+    transform: scale(1.2);
+    filter: drop-shadow(0 40px 80px rgba(0,0,0,0.5));
+    will-change: transform, opacity;
+}
+
+/* Transition Animations User Requested */
+
+.anim-enter {
+    animation: centerEnter 0.5s ease-out forwards !important; 
+}
+
+@keyframes centerEnter {
+    from { 
+        transform: scale(0.8); 
+        opacity: 0; 
+    }
+    to { 
+        transform: scale(1.2); 
+        opacity: 1; 
+    }
+}
+
+/* 2. Carousel Radius Fix */
+.item {
+    position: absolute;
+    inset: 0;
+    transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(750px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.item img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 15px rgba(0,0,0,0.6));
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effect */
+.item:hover img {
+    transform: scale(1.15);
+}
